@@ -114,7 +114,7 @@ func (s Scope) GetActiveUsersForOrganization(ctx domain.RequestContext) (u []use
 
 	err = s.Runtime.Db.Select(&u,
 		`SELECT u.id, u.refid, u.firstname, u.lastname, u.email, u.initials, u.password, u.salt, u.reset, u.lastversion, u.created, u.revised,
-		u.global, a.active, a.editor, a.admin, a.users as viewusers, a.analytics
+		u.global, a.active, a.editor, a.admin, a.users AS viewusers, a.analytics
 		FROM user u, account a
 		WHERE u.refid=a.userid AND a.orgid=? AND a.active=1
 		ORDER BY u.firstname,u.lastname`,
@@ -143,7 +143,7 @@ func (s Scope) GetUsersForOrganization(ctx domain.RequestContext, filter string)
 
 	err = s.Runtime.Db.Select(&u,
 		`SELECT u.id, u.refid, u.firstname, u.lastname, u.email, u.initials, u.password, u.salt, u.reset, u.lastversion, u.created, u.revised,
-		u.global, a.active, a.editor, a.admin, a.users as viewusers, a.analytics
+		u.global, a.active, a.editor, a.admin, a.users AS viewusers, a.analytics
 		FROM user u, account a
 		WHERE u.refid=a.userid AND a.orgid=? `+likeQuery+
 			`ORDER BY u.firstname, u.lastname LIMIT 100`, ctx.OrgID)
@@ -295,7 +295,7 @@ func (s Scope) MatchUsers(ctx domain.RequestContext, text string, maxMatches int
 
 	err = s.Runtime.Db.Select(&u,
 		`SELECT u.id, u.refid, u.firstname, u.lastname, u.email, u.initials, u.password, u.salt, u.reset, u.lastversion, u.created, u.revised,
-		u.global, a.active, a.editor, a.admin, a.users as viewusers, a.analytics
+		u.global, a.active, a.editor, a.admin, a.users AS viewusers, a.analytics
 		FROM user u, account a
 		WHERE a.orgid=? AND u.refid=a.userid AND a.active=1 `+likeQuery+
 			`ORDER BY u.firstname,u.lastname LIMIT `+strconv.Itoa(maxMatches),

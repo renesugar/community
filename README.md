@@ -1,3 +1,6 @@
+> We provide frequent product releases to ensure self-host customers enjoy the same product as our Cloud/SaaS platform customers.
+>
+> Harvey Kandola, CEO & Founder, Documize Inc.
 
 ## The mission
 
@@ -51,9 +54,9 @@ Space view.
 
 ## Latest version
 
-[Community edition: v1.64.0](https://github.com/documize/community/releases)
+[Community edition: v1.64.4](https://github.com/documize/community/releases)
 
-[Enterprise edition: v1.66.0](https://documize.com/downloads)
+[Enterprise edition: v1.66.5](https://documize.com/downloads)
 
 ## OS support
 
